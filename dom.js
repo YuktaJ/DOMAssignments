@@ -18,5 +18,15 @@ var add_items = document.querySelector('.title')
 console.log(header_title);
 // header_title.textContent = 'Hello';
 // header_title.style.borderBottom= 'solid 3px #000';
-header.style.borderBottom= 'solid 3px #000';
+header.style.borderBottom = 'solid 3px #000';
 add_items.style.color = "green";
+
+// GET ELEMENTBYCLASSNAME //
+var items = document.getElementsByClassName('list-group-item');
+console.log(items);
+console.log(items[1]);
+items[1].style.backgroundColor = 'yellow';
+
+for(let i =0;i<items.length;i++){
+    items[i].style.fontWeight = "bold";
+}
