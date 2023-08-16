@@ -53,9 +53,9 @@ header.style.borderBottom = "solid 3px #ccc";
 // fifth_item.textContent = "Hello Item 5";
 
 //Trying to edit item 5 using getElementsByTagName//
-var item_5 = document.getElementsByTagName('li');
-let fifth_item = item_5[item_5.length-1];
-fifth_item.textContent = "Hello Item 5";
+// var item_5 = document.getElementsByTagName('li');
+// let fifth_item = item_5[item_5.length-1];
+// fifth_item.textContent = "Hello Item 5";
 
 
 
