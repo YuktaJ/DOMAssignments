@@ -57,5 +57,17 @@ header.style.borderBottom = "solid 3px #ccc";
 // let fifth_item = item_5[item_5.length-1];
 // fifth_item.textContent = "Hello Item 5";
 
+// Changing second item color to green
+var second_item = document.querySelector(".list-group-item:nth-child(2)");
+second_item.style.backgroundColor = 'green';
+second_item.style.color= 'green';
 
+//making the third item invisible 
+var third_item = document.querySelector(".list-group-item:nth-child(3)");
+third_item.style.display = 'none';
 
+//Making all odd number item's bg color green 
+var odd = document.querySelectorAll('li:nth-child(odd)');
+for(var i=0;i<odd.length;i++){
+    odd[i].style.backgroundColor = 'green';
+}
