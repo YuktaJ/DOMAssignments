@@ -1,62 +1,95 @@
 var form = document.getElementById('addForm');
-var itemList = document.getElementById('items');
+var itemlist = document.getElementById('items');
+var filter = document.getElementById('filter');
 
-//Form submit event 
-form.addEventListener('submit',addItem); 
-//on clicking submit the addItem function will be called.
 
-//Removing the item from the list 
-itemList.addEventListener('click',removeItem);
+// form submit event
 
+form.addEventListener('submit',addItem);
+
+//delete event
+itemlist.addEventListener('click',removeItem);
+
+//filter event
+filter.addEventListener('keyup',filterItems);
+
+
+// function add item
 
 function addItem(e){
     e.preventDefault();
-    // Get input value 
-    var newItem = document.getElementById('item').value;
+    console.log(1);
 
-    //Create new li element 
+    // get input value
+
+    var newItem= document.getElementById('item').value;
+    var description = document.getElementById('description').value;
+    //console.log(newItem1);
+    
+    //create new li element
     var li = document.createElement('li');
 
-    //Add class name 
-    li.className = 'list-group-item';
+    li.className = "list-group-item";
+    //console.log(li);
 
-    //Add text node with input value
+    // add text node with input value
     li.appendChild(document.createTextNode(newItem));
-
-    //Create delete button element
-    var deleteBtn = document.createElement("button");
-    deleteBtn.className="btn btn-danger btn-sm float-right delete";
-    deleteBtn.appendChild(document.createTextNode('X'));
-    //Append button to list
-    li.appendChild(deleteBtn);
-
-    //Append li to list 
-    itemList.appendChild(li);
+    li.appendChild(document.createTextNode(" "));
+    li.appendChild(document.createTextNode(description));
     
+    // delete button element
+    var deleteBtn = document.createElement('button');
+    // add classes to delete button
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+    // creating text node to delete button
+    deleteBtn.appendChild(document.createTextNode('X'));
+    // append button to li
+    li.appendChild(deleteBtn);
+    // append li to list
+    itemlist.appendChild(li);
+    //create edit button
+    var editbtn = document.createElement('button');
+    // add clases to edit button
+    editbtn.className ='btn btn-info btn-sm float-right';
+    //creating text node to the edit button
+    editbtn.appendChild(document.createTextNode('Edit'));
+    // append button to li
+    li.append(editbtn);
 }
 
-//Remove item function
-function removeItem(e){
-    if(e.target.classList.contains('delete')){
-        if(confirm("Are you sure?")){
+// function remove item
+function removeItem(e)
+{
+    if(e.target.classList.contains('delete'))
+    {
+        if(confirm("Are you sure"))
+        {
             var li = e.target.parentElement;
-            itemList.removeChild(li);
+            itemlist.removeChild(li);
         }
     }
 }
 
-// Edit button 
-const itemsList = document.getElementById('items');
-
-// Get all the <li> elements within the <ul>
-const listItems = itemsList.querySelectorAll('li');
-
-// Iterate through each list item and add an "Edit" button
-listItems.forEach(item => {
-    const editButton = document.createElement('button');
-    editButton.classList.add('btn', 'btn-primary', 'btn-sm', 'float-right', 'edit');
-    editButton.textContent = 'Edit';
-    // Append the "Edit" button to the list item
-    item.appendChild(editButton);
-});
-
+// Filter items function
+function filterItems(e)
+{
+    //convert text to lower case
+    var text = e.target.value.toLowerCase();
+    //get li
+    var items = itemlist.getElementsByTagName('li');
+    // li collection to array
+    Array.from(items).forEach(function(item){
+        var itemName = item.firstChild.textContent;
+        var description = item.childNodes[2].textContent;
+        //console.log(itemName); 
+        // if not a match will be equal to -1
+        if(itemName.toLowerCase().indexOf(text) != -1 || description.toLowerCase().indexOf(text)!=-1)
+        {
+            item.style.display ="block";
+        }   
+        else{
+            item.style.display ="none";
+        }
+    });
+    
+}
