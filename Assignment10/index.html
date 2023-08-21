@@ -23,12 +23,22 @@
             const name = event.target.username.value;
             const Email = event.target.emailid.value;
             const Phone = event.target.contactNo.value;
-            localStorage.setItem("username",name);
+ /*            localStorage.setItem("username",name);
             localStorage.setItem("email",Email);
-            localStorage.setItem("contact",Phone); 
+            localStorage.setItem("contact",Phone); */
+            //end
+            const obj ={
+                Name : name,
+                EmailId :Email,
+                ContactNo : Phone
+            }
+            //localStorage.setItem("userDetails",obj); it Won't store as object it only stores Strings
+            localStorage.setItem("userDetails",JSON.stringify(obj));
+            let ans = JSON.parse(localStorage.getItem("userDetails"));
+            console.log(ans);
             
         }
         
-            
     </script>
 </body>
+</html>
