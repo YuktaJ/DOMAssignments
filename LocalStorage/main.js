@@ -28,5 +28,19 @@ function button1(obj) {
         localStorage.removeItem('obj');
         new_ele.remove();
     }
+
+    let edit_button = document.createElement("input");
+    edit_button.type = "button";
+    edit_button.value = "edit";
+    new_ele.appendChild(edit_button);
+
+    edit_button.onclick = () => {
+        localStorage.removeItem('obj');
+        new_ele.remove();
+
+        usernameInputTag.value = obj.name;
+        emailInputTag.value = obj.email;
+        phoneNumberInputTag.value = obj.phone;
+    }
 }
 
