@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <form onsubmit="SaveToLocalStorage(event)">
+        <label>Name</label>
+        <input type="text" name="username" id="usernameInputTag" required />
+        <label>EmailID</label>
+        <input type="email" name="emailid" id="emailInputTag" required>
+        <label>Phone Number</label>
+        <input type="tel" name="contactNo" id="phoneNumberInputTag">
+        <button type="submit" class="btn btn-outline-success">SUBMIT</button>
+
+    </form>
+    <ul id="ListofItems">ListofItems</ul>
+    <script src="main.js"></script>
+</body>
+
+</html>
