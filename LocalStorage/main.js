@@ -16,6 +16,17 @@ function SaveToLocalStorage(event) {
 
 function button1(obj) {
     let new_ele = document.createElement("li");
-    new_ele.textContent = obj.name + " " +obj.email +" " + obj.phone;
+    new_ele.textContent = obj.name + " " + obj.email + " " + obj.phone;
     ListofItems.append(new_ele);
+
+    let new_button = document.createElement("input");//important
+    new_button.type = "button";
+    new_button.value = "delete";
+    new_ele.appendChild(new_button);
+
+    new_button.onclick = () => {
+        localStorage.removeItem('obj');
+        new_ele.remove();
+    }
 }
+
